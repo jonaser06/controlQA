@@ -33,36 +33,43 @@
     <!-- <script src="view/dist/js/demo.js"></script> -->
     <script src="view/js/main.js"></script>
 </head>
-<body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
-<!-- Site wrapper -->
-<div class="wrapper">
-  <!-- ======================= Header ======================== -->
-  <?php  include 'modules/header.php'; ?>
-  <!-- ======================= Sidebar ======================== -->
-  <?php  include 'modules/sidebar.php'; ?>
-  <!-- ======================= Content ======================== -->
-  <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+<body class="hold-transition skin-blue sidebar-mini sidebar-collapse login-page"> 
     <?php
-        //include 'modules/content.php';
-        if(isset($_GET["ruta"])){
-            if($_GET["ruta"]=="content" ||
-                $_GET["ruta"]=="validar" ||
-                $_GET["ruta"]=="feed" ||
-                $_GET["ruta"]=="publicidad" ){
-                include 'modules/'.$_GET["ruta"].'.php';      
+        if(isset($_SESSION["login"]) && $_SESSION["login"]=="ok"){
+            echo '<!-- Site wrapper -->';
+            echo '<div class="wrapper">';
+            echo '<!-- ======================= Header ======================== -->';
+            include 'modules/header.php';
+            echo '<!-- ======================= Sidebar ======================== -->';
+
+            echo '<!-- ======================= Content ======================== -->';
+            include 'modules/sidebar.php';
+            echo '<!-- Content Wrapper. Contains page content -->';
+            echo '<div class="content-wrapper">';
+            //include 'modules/content.php';
+            if(isset($_GET["ruta"])){
+                if($_GET["ruta"]=="content" ||
+                    $_GET["ruta"]=="validar" ||
+                    $_GET["ruta"]=="feed" ||
+                    $_GET["ruta"]=="publicidad" ){
+                    include 'modules/'.$_GET["ruta"].'.php';      
+                }else{
+                    include 'modules/404.php'; 
+                }
             }else{
-                include 'modules/404.php'; 
+                include 'modules/content.php'; 
             }
+            echo '</div>';
+            echo '<!-- /.content-wrapper -->';
+            echo '<!-- ======================= Footer ======================== -->';
+            echo '</div>';
+            echo '<!-- ./wrapper -->';
+
+            include 'modules/footer.php';
         }else{
-            include 'modules/content.php'; 
+            include 'modules/login-page.php';
         }
+        
     ?>
-    </div>
-    <!-- /.content-wrapper -->
-  <!-- ======================= Footer ======================== -->
-  <?php include 'modules/footer.php'; ?>
-</div>
-<!-- ./wrapper -->
 </body>
 </html>
