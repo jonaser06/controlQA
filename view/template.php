@@ -51,7 +51,11 @@
                 $_GET["ruta"]=="feed" ||
                 $_GET["ruta"]=="publicidad" ){
                 include 'modules/'.$_GET["ruta"].'.php';      
+            }else{
+                include 'modules/404.php'; 
             }
+        }else{
+            include 'modules/content.php'; 
         }
     ?>
     </div>
