@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,16 +50,17 @@
             echo '<div class="content-wrapper">';
             //include 'modules/content.php';
             if(isset($_GET["ruta"])){
-                if($_GET["ruta"]=="content" ||
+                if($_GET["ruta"]=="home" ||
                     $_GET["ruta"]=="validar" ||
                     $_GET["ruta"]=="feed" ||
-                    $_GET["ruta"]=="publicidad" ){
+                    $_GET["ruta"]=="publicidad" ||
+                    $_GET["ruta"]=="logout"){
                     include 'modules/'.$_GET["ruta"].'.php';      
                 }else{
                     include 'modules/404.php'; 
                 }
             }else{
-                include 'modules/content.php'; 
+                include 'modules/home.php'; 
             }
             echo '</div>';
             echo '<!-- /.content-wrapper -->';

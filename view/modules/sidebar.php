@@ -13,7 +13,7 @@
       </div>
       <ul class="sidebar-menu">
         <li class="active">
-          <a href="content">
+          <a href="home">
             <i class="fa fa-home"></i> <span>Inicio</span>
           </a>
         </li>

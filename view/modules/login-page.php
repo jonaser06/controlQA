@@ -9,7 +9,7 @@
   <div class="login-box-body">
     <p class="login-box-msg">Inicie sesión para empezar</p>
 
-    <form action="../../index2.html" method="post">
+    <form method="post">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Usuario" name="inUser" required>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -25,7 +25,7 @@
       </div>
       <?php
         $login = new ControllerUsers();
-        $login-> CtrlLogin();
+        $login -> CtrlLogin();
       ?>
     </form>
   </div>

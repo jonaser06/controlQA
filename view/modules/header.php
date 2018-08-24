@@ -38,7 +38,7 @@
                   <a href="#" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Cerrar Sessión</a>
+                  <a href="logout" class="btn btn-default btn-flat">Cerrar Sessión</a>
                 </div>
               </li>
             </ul>
