@@ -1,8 +1,10 @@
 <?php
 
 class ControllerUsers{
-
-    public function CtrlLogin(){
+    /**
+     * logueo de usuarios
+     */
+    static public function CtrlLogin(){
 
         if(isset($_POST["inUser"])){
             if(preg_match('/^[a-zA-Z0-9]+$/',$_POST["inUser"]) &&
@@ -16,6 +18,8 @@ class ControllerUsers{
                     if($respuesta['username'] == $_POST["inUser"] && $respuesta['password'] == $_POST["inPass"] ){
 
                         $_SESSION["login"] = "ok";
+
+                        $update = ModeloUsers::online($respuesta['username']);
                         
                         echo '<script>
                             window.location="home";
@@ -27,6 +31,13 @@ class ControllerUsers{
             }
         }
 
+    }
+    /**
+     * mostrar usuarios
+     */
+    static public function GetUser(){
+        $respuesta = ModeloUsers::MostrarUsuarios();
+        echo json_encode($respuesta);
     }
 }
 

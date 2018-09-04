@@ -65,10 +65,9 @@
             echo '</div>';
             echo '<!-- /.content-wrapper -->';
             echo '<!-- ======================= Footer ======================== -->';
+            include 'modules/footer.php';
             echo '</div>';
             echo '<!-- ./wrapper -->';
-
-            include 'modules/footer.php';
         }else{
             include 'modules/login-page.php';
         }
