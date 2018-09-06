@@ -14,18 +14,31 @@ class ModeloUsers{
         $stmt -> close();
         $stmt = null;
     }
-    //
+    /*
+    //estado online
     static public function online($user){
-        $stmt = conexion::conectar()->prepare("UPDATE users SET state = '0' WHERE users.username = $user");
+        $tabla = 'users';
+        $valor = 'state';
+        $stmt = conexion::conectar()->prepare("UPDATE $tabla SET $valor = '1' WHERE users.username = '$user'");
+        $stmt -> execute();
+    }
+    //estado offline
+    static public function offline($user){
+        $tabla = 'users';
+        $valor = 'state';
+        $stmt = conexion::conectar()->prepare("UPDATE $tabla SET $valor = '0'");
+        $stmt -> execute();
     }
     //mostrar usuarios
     static public function MostrarUsuarios(){
         $table = 'users';
-        $stmt = conexion::conectar()->prepare("SELECT * FROM $table");
+        $valor = 'state';
+        $nombre = 'name';
+        $stmt = conexion::conectar()->prepare("SELECT $nombre FROM $table WHERE $valor = '1'");
         $stmt -> execute();
-        return $stmt -> fetchAll();
+        return $stmt -> fetch();
     }
-
+    */
 }
 
 ?>

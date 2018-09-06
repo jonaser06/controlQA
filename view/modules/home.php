@@ -15,35 +15,9 @@
     <section class="content">
       <div class="row">
         <div class="col-md-3">
-          <!-- Profile Image -->
-          <div class="box box-primary">
-            <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="view/img/users/logo.png" alt="User profile picture">
-
-              <h3 class="profile-username text-center">
-                <?php
-                  $name = ControllerUsers::GetUser();
-                ?>
-              </h3>
-
-              <p class="text-muted text-center">Software Engineer</p>
-
-              <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                  <b>Followers</b> <a class="pull-right">1,322</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Following</b> <a class="pull-right">543</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Friends</b> <a class="pull-right">13,287</a>
-                </li>
-              </ul>
-              <!--<a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>-->
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+          
+          
+          
 
           <!-- About Me Box -->
           <div class="box box-primary">
@@ -82,45 +56,95 @@
             <!-- /.box-body -->
             </div>
         </div>
+
         <div class="col-md-9">
             <div class="nav-tabs-custom">
               <ul class="nav nav-tabs">
-                <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
+                <li class="active"><a href="#activity" data-toggle="tab">Feeds</a></li>
                 <!--<li><a href="#timeline" data-toggle="tab">Timeline</a></li>
                 <li><a href="#settings" data-toggle="tab">Settings</a></li>-->
               </ul>
               <div class="tab-content">
                 <div class="active tab-pane" id="activity">
-                  <!-- Post -->
-                  <div class="post">
-                    <div class="user-block">
-                      <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
-                          <span class="username">
-                            <a href="#">Jonathan Burke Jr.</a>
-                            <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                          </span>
-                      <span class="description">Shared publicly - 7:30 PM today</span>
-                    </div>
-                    <!-- /.user-block -->
-                    <p>
-                      Lorem ipsum represents a long-held tradition for designers,
-                      typographers and the like. Some people hate it and argue for
-                      its demise, but others ignore the hate as they create awesome
-                      tools to help create filler text for everyone from bacon lovers
-                      to Charlie Sheen fans.
-                    </p>
-                    <ul class="list-inline">
-                      <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
-                      <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
-                      </li>
-                      <li class="pull-right">
-                        <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
-                          (5)</a></li>
-                    </ul>
-
-                    <input class="form-control input-sm" type="text" placeholder="Type a comment">
-                  </div>
-                  <!-- /.post -->
+                  <!-- feeds -->
+                  <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Portal</th>
+                      <th scope="col">Robots</th>
+                      <th scope="col">SiteMaps</th>
+                      <th scope="col">Feed News</th>
+                      <th scope="col">Instant RSS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row"><img src="view/img/products/ae.ico" width="20px" height="20px"></th>
+                      <td>
+                      <?php 
+                      $url = 'https://www.americatv.com.pe';
+                      if(CntrlFeed::robot($url)){
+                        echo "<span class='fa fa-check'></span><a href='$url/robots.txt' target='_blank'> ".count(file($url.'/robots.txt')). " lineas </a>";
+                      }else{
+                        echo '<span class="fa fa-times"></span>';
+                      }
+                      ?>
+                      </td>
+                      <td># Lineas</td>
+                      <td># Lineas</td>
+                      <td># Lineas</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><img src="view/img/products/an.ico" width="20px" height="20px"></th>
+                      <td>
+                      <?php 
+                      $url = 'https://www.americatv.com.pe/noticias';
+                      if(CntrlFeed::robot($url)){
+                        echo "<span class='fa fa-check'></span><a href='$url/robots.txt' target='_blank'> ".count(file($url.'/robots.txt')). " lineas </a>";
+                      }else{
+                        echo '<span class="fa fa-times"></span>';
+                      }
+                      ?>
+                      </td>
+                      <td># Lineas</td>
+                      <td># Lineas</td>
+                      <td># Lineas</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><img src="view/img/products/ad.ico" width="20px" height="20px"></th>
+                      <td>
+                      <?php 
+                      $url = 'https://www.americatv.com.pe/deportes';
+                      if(CntrlFeed::robot($url)){
+                        echo "<span class='fa fa-check'></span><a href='$url/robots.txt' target='_blank'> ".count(file($url.'/robots.txt')). " lineas </a>";
+                      }else{
+                        echo '<span class="fa fa-times"></span>';
+                      }
+                      ?>
+                      </td>
+                      <td># Lineas</td>
+                      <td># Lineas</td>
+                      <td># Lineas</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><img src="view/img/products/cn.ico" width="20px" height="20px"></th>
+                      <td>
+                      <?php 
+                      $url = 'https://canaln.pe';
+                      if(CntrlFeed::robot($url)){
+                        echo "<span class='fa fa-check'></span><a href='$url/robots.txt' target='_blank'> ".count(file($url.'/robots.txt')). " lineas </a>";
+                      }else{
+                        echo '<span class="fa fa-times"></span>';
+                      }
+                      ?>
+                      </td>
+                      <td># Lineas</td>
+                      <td># Lineas</td>
+                      <td># Lineas</td>
+                    </tr>
+                  </tbody>
+                  </table>
+                  <!-- /.feeds -->
                 </div>
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="timeline">

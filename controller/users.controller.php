@@ -14,12 +14,11 @@ class ControllerUsers{
                     $item = "username";
                     $valor = $_POST["inUser"];
                     $respuesta = ModeloUsers::MdlShowUsers($table,$item,$valor);
-                    
                     if($respuesta['username'] == $_POST["inUser"] && $respuesta['password'] == $_POST["inPass"] ){
 
                         $_SESSION["login"] = "ok";
 
-                        $update = ModeloUsers::online($respuesta['username']);
+                        $online = ModeloUsers::online($respuesta['username']);
                         
                         echo '<script>
                             window.location="home";
@@ -37,7 +36,7 @@ class ControllerUsers{
      */
     static public function GetUser(){
         $respuesta = ModeloUsers::MostrarUsuarios();
-        echo json_encode($respuesta);
+        echo $respuesta[0];
     }
 }
 
