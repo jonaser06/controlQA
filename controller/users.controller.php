@@ -16,10 +16,7 @@ class ControllerUsers{
                     $respuesta = ModeloUsers::MdlShowUsers($table,$item,$valor);
                     if($respuesta['username'] == $_POST["inUser"] && $respuesta['password'] == $_POST["inPass"] ){
 
-                        $_SESSION["login"] = "ok";
-
-                        $online = ModeloUsers::online($respuesta['username']);
-                        
+                        $_SESSION["login"] = "ok";                        
                         echo '<script>
                             window.location="home";
                         </script>';

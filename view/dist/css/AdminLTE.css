@@ -51,6 +51,12 @@ body {
 /*
  * Content Wrapper - contains the main content
  */
+ .fa-times{
+   color: red;
+ }
+ .fa-check{
+  color: #3c8dbc;
+ }
 .content-wrapper,
 .main-footer {
   -webkit-transition: -webkit-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
